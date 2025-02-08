@@ -1,0 +1,15 @@
+{
+  "settings": {
+    "number_of_shards": 1,
+    "number_of_replicas": 0
+  },
+  "mappings": {
+    "properties": {
+      "name": { "type": "text" },
+      "category": { "type": "keyword" },
+      "price": { "type": "float" },
+      "stock": { "type": "integer" },
+      "created_at": { "type": "date" }
+    }
+  }
+}

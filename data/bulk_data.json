@@ -1,0 +1,10 @@
+{ "index": { "_index": "products", "_id": "1" } }
+{ "name": "Laptop", "category": "Electronics", "price": 899.99, "stock": 50, "created_at": "2024-02-01T12:00:00" }
+{ "index": { "_index": "products", "_id": "2" } }
+{ "name": "Smartphone", "category": "Electronics", "price": 499.99, "stock": 100, "created_at": "2024-02-01T12:10:00" }
+{ "index": { "_index": "products", "_id": "3" } }
+{ "name": "Coffee Maker", "category": "Home Appliances", "price": 79.99, "stock": 30, "created_at": "2024-02-01T12:20:00" }
+{ "index": { "_index": "products", "_id": "4" } }
+{ "name": "Wireless Headphones", "category": "Electronics", "price": 129.99, "stock": 75, "created_at": "2024-02-01T12:30:00" }
+{ "index": { "_index": "products", "_id": "5" } }
+{ "name": "Office Chair", "category": "Furniture", "price": 199.99, "stock": 20, "created_at": "2024-02-01T12:40:00" }
