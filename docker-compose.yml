@@ -11,6 +11,10 @@ services:
       - "9200:9200"
     volumes:
       - elasticsearch_data:/usr/share/elasticsearch/data
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:9200/_cat/health" ]
+      interval: 10s
+      retries: 5
 
   kibana:
     image: docker.elastic.co/kibana/kibana:8.14.0
@@ -30,6 +34,18 @@ services:
     entrypoint: [ "/bin/sh", "-c", "sleep 40 && /usr/share/elasticsearch/data/data_load.sh" ]
     depends_on:
       - elasticsearch
+
+  search:
+    build: .
+    container_name: search
+    ports:
+      - "5001:5000"
+    depends_on:
+      - elasticsearch
+    environment:
+      - ELASTICSEARCH_URL=http://elasticsearch:9200
+    entrypoint:  ["./wait-for-it.sh", "elasticsearch:9200", "-t", "60", "--", "python", "app.py"]
+
 
 volumes:
   elasticsearch_data:

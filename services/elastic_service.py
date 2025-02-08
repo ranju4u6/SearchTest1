@@ -1,15 +1,17 @@
 import json
+import os
 
 from elasticsearch import Elasticsearch
 
 
 class ElasticService:
-    ELASTIC_URL = "http://localhost:9200/"
+    # ELASTIC_URL = "http://localhost:9200/"
     INDEX = "products"
 
     def __init__(self):
         # Connect to Elasticsearch
-        self.es = Elasticsearch("http://localhost:9200")
+        elastic_url = os.getenv("ELASTICSEARCH_URL", "http://localhost:9200")
+        self.es = Elasticsearch(elastic_url)
 
         # Check if the connection is successful
         if self.es.ping():
